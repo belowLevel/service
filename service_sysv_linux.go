@@ -7,6 +7,7 @@ package service
 import (
 	"errors"
 	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"strings"
@@ -154,6 +155,7 @@ func (s *sysv) Run() (err error) {
 func (s *sysv) Status() (Status, error) {
 	_, out, err := runWithOutput("service", s.Name, "status")
 	if err != nil {
+		log.Println(out)
 		return StatusUnknown, err
 	}
 
