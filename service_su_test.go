@@ -4,7 +4,6 @@
 
 // This needs to be run as root/admin hence the reason there is a build tag
 //go:build su
-// +build su
 
 package service_test
 

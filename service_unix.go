@@ -3,7 +3,6 @@
 // license that can be found in the LICENSE file.
 
 //go:build linux || darwin || solaris || aix || freebsd
-// +build linux darwin solaris aix freebsd
 
 package service
 
