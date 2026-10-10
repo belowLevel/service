@@ -14,7 +14,19 @@ import (
 	"syscall"
 )
 
+func isCentOS6() bool {
+	data, err := os.ReadFile("/etc/redhat-release")
+	if err != nil {
+		return false
+	}
+	s := string(data)
+	return strings.Contains(s, "CentOS") && strings.Contains(s, "release 6")
+}
+
 func isUpstart() bool {
+	if isCentOS6() {
+		return false
+	}
 	if _, err := os.Stat("/sbin/upstart-udev-bridge"); err == nil {
 		return true
 	}
